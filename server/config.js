@@ -10,7 +10,7 @@ dotenv.config({ path: '.env.local' });
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const markets = JSON.parse(readFileSync(join(__dirname, 'data', 'markets.json'), 'utf8'));
 
-// Beispiel-PLZs im Mannheimer Raum (keine echten Privat-PLZs).
+// Beispiel-PLZs (keine echten Privat-PLZs).
 // Für eigene PLZs .env, .env.local oder zipcodes.local verwenden (siehe .gitignore).
 const DEFAULT_ZIP_CODES = ['68159', '68161', '68309', '68519'];
 

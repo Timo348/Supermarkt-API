@@ -48,7 +48,7 @@ Um deine eigenen PLZs nicht ins Repository zu committen, gibt es drei Möglichke
 | Variable | Standard | Beschreibung |
 |----------|----------|--------------|
 | `PORT` | `3000` | Port des Servers |
-| `ZIP_CODES` | kommagetrennte Liste | PLZs im 10 km Radius um Mannheim |
+| `ZIP_CODES` | kommagetrennte Liste | PLZs im gewünschten Umkreis |
 | `CACHE_TTL_MINUTES` | `60` | Cache-Ablaufzeit in Minuten |
 | `REFRESH_CRON` | `0 */6 * * *` | Cron für automatische Datenaktualisierung |
 | `API_RATE_LIMIT_PER_MINUTE` | `60` | Rate-Limit pro IP und Minute |
@@ -177,7 +177,7 @@ Liste aller unterstützten Märkte.
 
 ### `GET /api/offers`
 
-Sucht und filtert Angebote aus Mannheim und Umgebung.
+Sucht und filtert Angebote.
 
 **Query-Parameter:**
 

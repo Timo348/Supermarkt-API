@@ -85,7 +85,7 @@ async function warmup() {
 }
 
 app.listen(config.port, async () => {
-  console.log(`Supermarkt-API Mannheim listening on port ${config.port}`);
+  console.log(`Supermarkt-API listening on port ${config.port}`);
   console.log(`Monitoring ZIP codes: ${config.zipCodes.join(', ')}`);
   startScheduler();
   await warmup();

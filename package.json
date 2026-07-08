@@ -1,7 +1,7 @@
 {
-  "name": "supermarkt-api-mannheim",
+  "name": "supermarkt-api",
   "version": "1.0.0",
-  "description": "API für aktuelle und kommende Supermarkt-Angebote in Mannheim und Umgebung",
+  "description": "API für aktuelle und kommende Supermarkt-Angebote",
   "type": "module",
   "main": "server/index.js",
   "engines": {
