@@ -1,6 +1,6 @@
-# Supermarkt-API Mannheim
+# Supermarkt-API
 
-REST-API für aktuelle und kommende Supermarkt-Angebote in Mannheim und Umgebung (10 km Radius, ohne Ludwigshafen). Datenquelle ist [marktguru.de](https://www.marktguru.de).
+REST-API für aktuelle und kommende Supermarkt-Angebote.  Datenquelle ist [marktguru.de](https://www.marktguru.de).
 
 ## Abgedeckte Märkte
 
