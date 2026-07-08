@@ -1,37 +1,39 @@
 import dotenv from 'dotenv';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 dotenv.config();
 
+dotenv.config({ path: '.env.local' });
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const markets = JSON.parse(readFileSync(join(__dirname, 'data', 'markets.json'), 'utf8'));
 
-// PLZs im 10km-Radius um Mannheim (ohne Ludwigshafen), inkl. Viernheim
-const DEFAULT_ZIP_CODES = [
-  // Mannheim
-  '68159', '68161', '68163', '68165', '68167', '68169', '68199',
-  '68219', '68229', '68239', '68259', '68305', '68307', '68309',
-  // Umgebung
-  '68519', // Viernheim
-  '68549', // Ilvesheim
-  '68535', // Edingen-Neckarhausen
-  '68526', // Ladenburg
-  '69198', // Schriesheim
-  '69221', // Dossenheim
-  '69214', // Eppelheim
-  '68723', // Schwetzingen / Plankstadt / Oftersheim
-  '68782', // Brühl
-  '68775', // Ketsch
-  '68804', // Altlußheim
-  '68809', // Neulußheim
-  '68766'  // Hockenheim
-];
+// Beispiel-PLZs im Mannheimer Raum (keine echten Privat-PLZs).
+// Für eigene PLZs .env, .env.local oder zipcodes.local verwenden (siehe .gitignore).
+const DEFAULT_ZIP_CODES = ['68159', '68161', '68309', '68519'];
+
+function readLocalZipCodes() {
+  const localFile = join(process.cwd(), 'zipcodes.local');
+  if (existsSync(localFile)) {
+    const content = readFileSync(localFile, 'utf8');
+    return content.split(/\r?\n/).map(z => z.trim()).filter(Boolean);
+  }
+  return null;
+}
 
 function parseZipCodes() {
-  const raw = process.env.ZIP_CODES || DEFAULT_ZIP_CODES.join(',');
-  return raw.split(',').map(z => z.trim()).filter(Boolean);
+  if (process.env.ZIP_CODES) {
+    return process.env.ZIP_CODES.split(',').map(z => z.trim()).filter(Boolean);
+  }
+
+  const local = readLocalZipCodes();
+  if (local && local.length > 0) {
+    return local;
+  }
+
+  return DEFAULT_ZIP_CODES;
 }
 
 export const config = {

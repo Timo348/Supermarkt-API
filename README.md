@@ -18,10 +18,30 @@ REST-API für aktuelle und kommende Supermarkt-Angebote in Mannheim und Umgebung
 
 ```bash
 cp .env.example .env
+# Optional: eigene PLZs in .env oder zipcodes.local eintragen
 docker compose up --build
 ```
 
 Die API ist dann unter `http://localhost:3000` erreichbar.
+
+### Eigene PLZs hinterlegen
+
+Um deine eigenen PLZs nicht ins Repository zu committen, gibt es drei Möglichkeiten:
+
+1. **`.env`** – wird von Git ignoriert  
+   ```env
+   ZIP_CODES=68159,68161,68309,68519
+   ```
+
+2. **`.env.local`** – wird ebenfalls ignoriert und hat Vorrang vor `.env`
+
+3. **`zipcodes.local`** – eine Zeile pro PLZ  
+   ```text
+   68159
+   68161
+   68309
+   68519
+   ```
 
 ## Umgebungsvariablen
 
@@ -108,7 +128,7 @@ Aktuelle Konfiguration der API.
 **Response:**
 ```json
 {
-  "zipCodes": ["68159", "68161", "68163", "..."],
+  "zipCodes": ["68159", "68161", "68309", "68519"],
   "markets": ["rewe", "penny", "lidl", "aldi-nord", "aldi-sued", "edeka", "marktkauf", "kaufland", "netto"],
   "cacheTtlMinutes": 60,
   "refreshCron": "0 */6 * * *"
