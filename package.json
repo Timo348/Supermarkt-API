@@ -1,0 +1,25 @@
+{
+  "name": "supermarkt-api-mannheim",
+  "version": "1.0.0",
+  "description": "API für aktuelle und kommende Supermarkt-Angebote in Mannheim und Umgebung",
+  "type": "module",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {}
+}

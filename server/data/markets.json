@@ -1,0 +1,65 @@
+[
+  {
+    "id": "rewe",
+    "name": "REWE",
+    "retailerId": "126802",
+    "urlName": "rewe",
+    "category": "Supermarkt"
+  },
+  {
+    "id": "penny",
+    "name": "PENNY",
+    "retailerId": "126765",
+    "urlName": "penny",
+    "category": "Discounter"
+  },
+  {
+    "id": "lidl",
+    "name": "Lidl",
+    "retailerId": "126679",
+    "urlName": "lidl",
+    "category": "Discounter"
+  },
+  {
+    "id": "aldi-nord",
+    "name": "ALDI NORD",
+    "retailerId": "126695",
+    "urlName": "aldi-nord",
+    "category": "Discounter"
+  },
+  {
+    "id": "aldi-sued",
+    "name": "ALDI SÜD",
+    "retailerId": "127153",
+    "urlName": "aldi-sued",
+    "category": "Discounter"
+  },
+  {
+    "id": "edeka",
+    "name": "EDEKA",
+    "retailerId": "127093",
+    "urlName": "edeka",
+    "category": "Supermarkt"
+  },
+  {
+    "id": "marktkauf",
+    "name": "Marktkauf",
+    "retailerId": "126894",
+    "urlName": "marktkauf",
+    "category": "Supermarkt"
+  },
+  {
+    "id": "kaufland",
+    "name": "Kaufland",
+    "retailerId": "126654",
+    "urlName": "kaufland",
+    "category": "Supermarkt"
+  },
+  {
+    "id": "netto",
+    "name": "Netto Marken-Discount",
+    "retailerId": "126735",
+    "urlName": "netto-marken-discount",
+    "category": "Discounter"
+  }
+]

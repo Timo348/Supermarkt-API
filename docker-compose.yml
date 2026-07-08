@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    container_name: supermarkt-api-mannheim
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - PORT=3000
+      - ZIP_CODES=${ZIP_CODES:-68159,68161,68163,68165,68167,68169,68199,68219,68229,68239,68259,68305,68307,68309,68519,68549,68535,68526,69198,69221,69214,68723,68782,68775,68804,68809,68766}
+      - CACHE_TTL_MINUTES=${CACHE_TTL_MINUTES:-60}
+      - REFRESH_CRON=${REFRESH_CRON:-0 */6 * * *}
+      - API_RATE_LIMIT_PER_MINUTE=${API_RATE_LIMIT_PER_MINUTE:-60}
+    volumes:
+      - ./server/database:/app/server/database
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
